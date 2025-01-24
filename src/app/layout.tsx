@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import Providers from "@/lib/Providers";
+import { store } from "@/redux/store";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const roboto = Roboto({
   weight: "400",
@@ -23,14 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Providers>
-      <html lang="en" data-theme="light">
-        <body className={roboto.className}>
+    <html lang="en" data-theme="light">
+      <body className={roboto.className}>
+        <Providers>
           <Header />
           <div className="min-h-screen">{children}</div>
           <Footer />
-        </body>
-      </html>
-    </Providers>
+        </Providers>
+      </body>
+    </html>
   );
 }
